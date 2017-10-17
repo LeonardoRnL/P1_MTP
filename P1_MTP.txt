@@ -1,0 +1,57 @@
+Aluno: Leonardo Rangel de Lima
+N° matrícula: 11711EAU005
+
+Questão 1:
+
+MAT0: 11711EAU005
+KANO0: 3
+KCUR0: 1
+KNUM0: 6
+
+MAT1: 10011EEL034
+KANO1: 4
+KCUR1: 4
+KNUM1: 8
+
+MAT2: 10021EBI075
+KANO2: 5
+KCUR2: 2
+KNUM2: 4
+
+Questão 2:
+
+x = 9; y = 4; z = 0.
+
+Questão 3:
+
+x = 22; y = 0; z = 12.
+
+Questão 4:
+
+Atribuir 0 à variável soma, no início do laço.
+
+Questão 5:
+
+a. 48  0  51
+
+b. São os valores dos caracteres na base decimal(Tabela ASCII). O número 48 indica o caractere 0, 51 o caractere 3 e 0 caractere Null.
+
+Questão 6:
+
+a. A leoa gostou de um cesto de vime.
+
+b. As strings são a junção de várias palavras, que pode ser observado quando pegamos o anterior de cada caractere(Tabela ASCII):
+
+srt1[] = "P!hbujoip!LjljNbsjfMpvjtP!mfbpP!npsdfhpP!ujhsfB!" "ujhsftbB!mfpbBmfyfj";
+
+srt1[] = "O gatinho KikiMarieLouisO leaoO morcegoO tigreA tigresaA leoaAlexei"
+
+str2[] = "dbdpvdpnfvgpj!qsftp!qpshptupv!efmbncfvspvcbeftu" "spjdpotuspjfybnjob"
+
+str2[] = "cacoucomeufoi preso porgostou delambeuroubadestroiconstroiexamina
+
+str3[] = "vnb!bsnbejmib!ef!dpfmipvnb!spvqb!opwbvnb!qpdb!ef!" "tbohvfvn!pttpvn!csjorvfepvn!wbnqjspvn!dftup!ef!wjnfvn!" "esbhbpvn!cbmef!ef!bsfjb"
+
+str3[] = "uma armadilha de coelhouma roupa novauma poca de sangueum ossoum brinquedoum vampiroum cesto de vimeum dragaoum balde de areia."
+
+Já os vetores numéricos, indicam os intervalos de cada palavra nas strings. Sendo determinados pelos valores das variáveis x, y e z, que variam de 0 a 8, cada uma, chegando a 729 diferentes possibilidades de frases.
