@@ -1,0 +1,121 @@
+#include <stdio.h>
+
+int main() {
+	
+	int x, y, z, v, w;
+	char mat[][16] = {"11711EAU005","10011EEL034","10021EBI075"};
+	char curso[4]; curso[3] = '\0';
+	int KANO[] = {0,0,0}, KCUR[] = {0,0,0}, KNUM[] = {0,0,0};
+	int i, j;
+	for(i = 0; i < 3; i++) {
+		for(j = 0; j < 5; j++)
+			KANO[i] += mat[i][j] - 48;
+		for(j = 5; j < 8; j++)
+			curso[j-5] = mat[i][j];
+		if(strcmp(curso,"EAU") == 0) KCUR[i] = 1;
+		if(strcmp(curso,"EBI") == 0) KCUR[i] = 2;
+		if(strcmp(curso,"ECP") == 0) KCUR[i] = 3;
+		if(strcmp(curso,"EEL") == 0) KCUR[i] = 4;
+		if(strcmp(curso,"ETE") == 0) KCUR[i] = 5;
+		if(KCUR[i] == 0) KCUR[i] = 6;
+		for(j = 8; j < 11; j++)
+			KNUM[i] += mat[i][j] - 48;
+		KANO[i] = KANO[i]%9 + 1;
+		KNUM[i] = KNUM[i]%9 + 1;
+	}
+	for(i = 0; i < 3; i++)
+		printf("KANO%d = %d; KCUR%d = %d; KNUM%d = %d\n", i, KANO[i], i, KCUR[i], i, KNUM[i]);
+
+printf("\n\n");
+
+// Q2
+
+	x = KCUR[0]; y = KANO[1]; z = KNUM[2];
+	if(x > 5)
+		y = y + z;
+	else
+		z = z - y;
+	for(i = 0; i < y+z; i++)
+		x = x + 2;
+	printf("%d %d %d\n",x,y,z);
+
+printf("\n\n");
+
+// Q3
+
+	x = KCUR[1]; y = KANO[2]; z = KNUM[0]; v = KANO[0];
+	w = KNUM[1];
+	
+	int prod = 1;
+	if(x > 5 && z < 5)
+		for(i = 0; i < w; i++)
+			prod = prod*y;
+	else
+		for(i = 0; i < v; i++)
+			prod = prod*(y+1);
+	y = prod%(v*w);
+	x = (v+w)*((x > z)? x - z : z - x);
+	while(z < v+w) z = z + 3;
+	printf("%d %d %d\n",x,y,z);
+
+printf("\n\n");
+
+// Q4
+
+	x = KANO[0];
+	y = KANO[1]+KANO[2];
+	z = KNUM[0]+KNUM[1]+KNUM[2];
+	int soma = x+y;
+	printf("A soma de %d e %d = %d\n", x, y, soma);
+	if(z > 10)
+		printf("O numero z = %d (maior que 10)\n", z);
+	for(i = 0, soma = 0; i < x; i++)
+		soma = soma + z;
+	printf("O resultado de %d vezes %d = %d\n", x, z, soma);
+
+printf("\n\n\n");
+
+// Q5
+
+	char str[256] = "?!";
+	x = KNUM[0]+KCUR[0]+KANO[0];
+	y = KNUM[1]+KCUR[1]+KANO[1];
+	z = KNUM[2]+KCUR[2]+KANO[2];
+	int tam;
+	strcat(str,"11711EAU005");
+	strcat(str,"10011EEL034");
+	strcat(str,"10021EBI075" );
+	tam = strlen(str);
+	printf("%d %d %d\n", *(str+x), str[4*y-4], str[2*z]);
+
+printf("\n\n\n");
+
+// Q6
+
+	x = (KNUM[0]+KCUR[0])%9;
+	y = (KNUM[1]+KCUR[1])%9;
+	z = (KNUM[2]+KCUR[2])%9;
+char str1[] = "P!hbujoip!LjljNbsjfMpvjtP!mfbpP!npsdfhpP!ujhsfB!"
+"ujhsftbB!mfpbBmfyfj";
+char str2[] = "dbdpvdpnfvgpj!qsftp!qpshptupv!efmbncfvspvcbeftu"
+"spjdpotuspjfybnjob";
+char str3[] = "vnb!bsnbejmib!ef!dpfmipvnb!spvqb!opwbvnb!qpdb!ef!"
+"tbohvfvn!pttpvn!csjorvfepvn!wbnqjspvn!dftup!ef!wjnfvn!"
+"esbhbpvn!cbmef!ef!bsfjb";
+
+	int len1[] = {0, 14, 19, 24, 30, 39, 46, 55, 61, 67};
+	int len2[] = {0, 5, 10, 23, 32, 38, 43, 50, 58, 65};
+	int len3[] = {0, 23, 37, 55, 62, 74, 84, 100, 109, 126};
+	char * ptr;
+	for(i = len1[x], ptr = str1+i; i < len1[x+1]; i++, ptr++)
+		printf("%c", (*ptr) - 1);
+	printf(" ");
+	for(i = len2[y], ptr = str2+i; i < len2[y+1]; i++, ptr++)
+		printf("%c", (*ptr) - 1);
+	printf(" ");
+	for(i = len3[z], ptr = str3+i; i < len3[z+1]; i++, ptr++)
+		printf("%c", (*ptr) - 1);
+	printf(".\n");
+
+	return 0;
+}
